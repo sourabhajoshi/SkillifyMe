@@ -1,0 +1,252 @@
+Git Interview Questions & Answers (6+ Years)
+
+1. What is Version Control?
+Version Control is a system that tracks changes made to files over time. It allows multiple developers to work on the same project, maintains version history, supports collaboration, and enables restoring previous versions whenever required.
+
+2. What is Git?
+Git is a Distributed Version Control System (DVCS) used to track source code changes. Every developer has a complete copy of the repository, allowing them to work offline and synchronize changes later with a remote repository.
+
+3. Why is Git called a Distributed Version Control System?
+Git is called a Distributed Version Control System because every developer has a complete copy of the repository, including the entire commit history. Unlike centralized systems, developers can commit, branch, and view history without connecting to a central server.
+
+4. What is the difference between Git and GitHub?
+Git is a version control tool installed on your local machine to manage source code. GitHub is a cloud-based platform that hosts Git repositories and provides collaboration features such as Pull Requests, Code Reviews, Issues, and CI/CD integration.
+
+5. Explain Git Architecture.
+Git consists of four main areas:
+
+Working Directory – Where developers modify files.
+Staging Area – Temporary area that stores selected changes before committing.
+Local Repository – Stores commits inside the hidden .git folder.
+Remote Repository – Stores project code on platforms like GitHub or GitLab for collaboration.
+6. What is the Staging Area?
+The Staging Area is an intermediate area between the Working Directory and the Local Repository. It allows developers to choose which changes should be included in the next commit.
+
+7. What is a Commit?
+A Commit is a snapshot of the project at a particular point in time. Every commit has a unique SHA hash, author information, timestamp, and commit message.
+
+8. What is HEAD?
+HEAD is a pointer that always points to the currently checked-out branch or the latest commit on that branch. Whenever you switch branches, HEAD automatically moves to the new branch.
+
+9. Explain Branching.
+A branch is an independent line of development. It allows developers to work on new features or bug fixes without affecting the main codebase. After development, the branch is merged back into the main branch.
+
+10. What is Git Merge?
+Git Merge combines changes from one branch into another. If there are no conflicting changes, Git merges automatically. If conflicts occur, they must be resolved manually.
+
+11. Difference between Merge and Rebase?
+Merge combines two branches and creates a Merge Commit while preserving the complete history.
+
+Rebase moves feature branch commits on top of another branch, creating a clean and linear history without an additional Merge Commit.
+
+Use Merge for shared branches and Rebase for keeping local feature branches up to date.
+
+12. What is Git Stash?
+Git Stash temporarily saves uncommitted changes and cleans the working directory. It allows developers to switch branches or pull the latest code without committing incomplete work.
+
+13. Difference between git stash apply and git stash pop?
+git stash apply restores the stashed changes but keeps the stash in the stash list.
+
+git stash pop restores the changes and removes the stash from the stash list.
+
+14. Difference between git fetch and git pull?
+git fetch downloads the latest changes from the remote repository without modifying the current branch.
+
+git pull first performs a fetch and then automatically merges the downloaded changes into the current branch.
+
+15. Difference between git reset and git revert?
+git reset moves the branch pointer backward and rewrites commit history. It is mainly used before pushing commits.
+
+git revert creates a new commit that reverses the changes of an earlier commit. It preserves commit history and is safe for shared branches.
+
+16. What is git restore?
+git restore is used to discard local changes or remove files from the staging area without modifying commit history.
+
+17. What is Cherry Pick?
+Cherry Pick copies a specific commit from one branch and applies it to another branch without merging the complete branch.
+
+18. What is Git Reflog?
+Git Reflog records all movements of HEAD and branch references locally. It is mainly used to recover deleted or lost commits after reset, rebase, or accidental branch deletion.
+
+19. What are Git Tags?
+Tags are references used to mark important commits, usually release versions such as v1.0, v2.0, or v3.0. Tags make it easy to identify important milestones in a project.
+
+20. What is Git Bisect?
+Git Bisect is a debugging tool that uses binary search to identify the exact commit that introduced a bug. It significantly reduces the number of commits that need to be checked.
+
+21. What are Git Hooks?
+Git Hooks are scripts that automatically execute before or after Git operations such as commit, push, or merge. They are commonly used for code formatting, linting, testing, and enforcing coding standards.
+
+22. What are Git Submodules?
+Git Submodules allow one Git repository to include another Git repository as a dependency. Each submodule maintains its own commit history independently.
+
+23. What is Git LFS?
+Git LFS (Large File Storage) is an extension used to manage large files such as videos, images, and machine learning models. Instead of storing large files inside Git, Git stores lightweight pointers while the actual files are stored separately.
+
+24. What is a Pull Request (PR)?
+A Pull Request is a request to merge changes from one branch into another. It allows team members to review code, suggest improvements, approve changes, and maintain code quality before merging.
+
+25. What is Code Review?
+Code Review is the process of reviewing another developer's code before it is merged into the main branch. It helps improve code quality, detect bugs early, and ensure coding standards are followed.
+
+26. What is .gitignore?
+The .gitignore file tells Git which files and folders should not be tracked. It is commonly used to exclude temporary files, build artifacts, dependencies, environment files, and IDE-specific files.
+
+27. What is Detached HEAD?
+Detached HEAD occurs when HEAD points directly to a specific commit instead of a branch. Any new commits created in this state are not associated with a branch unless a new branch is created.
+
+28. What is Git Flow?
+Git Flow is a branching strategy that organizes development using dedicated branches such as main, develop, feature, release, and hotfix. It is commonly used for structured release management.
+
+29. Explain your daily Git workflow.
+In my daily work, I first pull the latest changes from the main branch, create a feature branch, implement the required changes, commit them with meaningful messages, push the branch to the remote repository, create a Pull Request, address review comments if required, and finally merge the changes after approval.
+
+30. What are Git Best Practices?
+I always create feature branches instead of working directly on the main branch. I write meaningful commit messages, create small and focused commits, pull the latest changes before starting work, resolve conflicts carefully, use .gitignore for unnecessary files, raise Pull Requests for every feature, participate in code reviews, and delete feature branches after they are merged.
+
+Git Interview Questions & Answers (Senior - 6+ Years)
+
+1. Difference between Merge and Rebase?
+Both Merge and Rebase are used to combine changes from different
+branches.
+
+Merge - Combines two branches. - Creates a Merge Commit. - Preserves
+complete history. - Best for shared branches.
+
+Rebase - Moves feature branch commits on top of another branch. - Does
+not create a Merge Commit. - Creates a clean, linear history. - Best for
+local feature branches before creating a Pull Request.
+
+
+2. Difference between Fetch and Pull?
+git fetch - Downloads latest changes. - Does NOT merge. - Safe to review
+changes.
+
+git pull - Downloads latest changes. - Automatically merges into the
+current branch.
+
+Remember: git pull = git fetch + git merge
+
+
+3. Difference between Reset and Revert?
+git reset - Moves branch pointer backward. - Rewrites commit history. -
+Best before pushing commits.
+
+git revert - Creates a new commit that undoes previous changes. -
+Preserves history. - Safe after pushing commits.
+
+
+4. Explain Git Architecture.
+Working Directory ↓ (git add) Staging Area ↓ (git commit) Local
+Repository (.git) ↓ (git push) Remote Repository
+
+-   Working Directory → Modify files.
+-   Staging Area → Selected changes.
+-   Local Repository → Stores commits.
+-   Remote Repository → GitHub/GitLab.
+
+
+5. Explain Git Stash.
+Git Stash temporarily saves uncommitted changes without creating a
+commit.
+
+Used when: - Switching branches. - Pulling latest code. - Saving
+incomplete work.
+
+Commands: git stash git stash list git stash apply git stash pop
+
+
+6. Explain HEAD.
+HEAD is a pointer to the currently checked-out branch or latest commit.
+It automatically moves when you switch branches.
+
+
+7. Explain Merge Conflict.
+A Merge Conflict occurs when the same part of a file is modified in two
+branches and Git cannot decide which version to keep.
+
+
+8. Explain Pull Request Workflow.
+Create Feature Branch → Write Code → Commit → Push → Create Pull Request
+→ Code Review → Approve → Merge → Delete Branch
+
+
+9. Explain your Daily Git Workflow.
+1.  Pull latest code.
+2.  Create feature branch.
+3.  Develop feature.
+4.  Commit changes.
+5.  Push branch.
+6.  Raise Pull Request.
+7.  Fix review comments.
+8.  Merge after approval.
+9.  Delete feature branch.
+
+
+10. How do you recover deleted commits?
+Use: git reflog
+
+Find the commit ID, then recover using: git checkout or git reset –hard
+
+
+11. What is Cherry Pick?
+Cherry Pick copies a specific commit from one branch and applies it to
+another branch.
+
+Command: git cherry-pick
+
+
+12. What is Reflog?
+Reflog records every movement of HEAD and helps recover lost commits,
+deleted branches, or accidental resets.
+
+Command: git reflog
+
+
+13. What is Detached HEAD?
+Detached HEAD occurs when HEAD points directly to a commit instead of a
+branch.
+
+Create a new branch before continuing work.
+
+
+14. What is Git Flow?
+Git Flow is a branching strategy using: - main - develop - feature -
+release - hotfix
+
+15. What is .gitignore?
+.gitignore tells Git which files and folders should NOT be tracked.
+
+Examples: node_modules/ .env venv/ dist/ pycache/
+
+16. What happens when you run git pull?
+
+git pull performs: 1. git fetch 2. git merge
+
+It downloads and merges the latest changes into the current branch.
+
+17. What is Fast Forward Merge?
+Fast Forward Merge happens when there are no new commits on the target
+branch. Git simply moves the branch pointer forward without creating a
+Merge Commit.
+
+18. What is Three-Way Merge?
+Three-Way Merge happens when both branches have new commits. Git finds
+the common ancestor and creates a Merge Commit.
+
+19. How do you resolve Merge Conflicts?
+1.  Run merge.
+2.  Open conflicted file.
+3.  Resolve conflicts.
+4.  Remove conflict markers.
+5.  git add .
+6.  git commit
+
+20. What are Git Hooks?
+Git Hooks are scripts that automatically run before or after Git
+operations.
+
+Common Hooks: - pre-commit - pre-push - post-merge - commit-msg
+
+Uses: - Run tests - Run linting - Validate commit messages - Format code
+automatically
